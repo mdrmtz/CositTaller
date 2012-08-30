@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Buscador Venues</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
+</head> 
+<!--http://www.github.com/mdrmtz-->
+<body> 
+  <div data-role="page" id="xyzPage"> <!--page-->
+  	<div data-role="header" >
+  		<h1>Cercanos</h1>
+  	</div><!--end header-->
+  	<div data-role="content">
+  		<a href="#pagina2" data-role="button"  		data-transition="flip">Buscar</a>
+  	</div><!--end content -->
+  	<div data-role="footer" data-position="fixed">
+  		<h1>Mi Empresa</h1>
+<!--http://labs.mario.ec/jquery-gmap/-->
+  	</div><!--end footer-->
+  </div><!--end Page-->
+  <div data-role="page" id="pagina2" data-add-back-btn="true"> <!--page-->
+  	<div data-role="header" >
+  		<h1>Busqueda</h1>
+		<a href="#mapa" data-icon="grid"
+		data-transition="flip" class="ui-btn-right">Mapa</a>
+  	</div><!--end header-->
+  	<div data-role="content">
+  		Contenido
+  	</div><!--end content -->
+  	<div data-role="footer" data-position="fixed">
+  		<h1>Mi Empresa</h1>  <!--mongoDB  pragmatic ruby and rails-->
+  	</div><!--end footer-->
+  </div><!--end Page-->
+   
+ <div data-role="page" id="mapa" data-add-back-btn="true"> <!--page-->
+  	<div data-role="header" >
+  		<h1>MAPA</h1>
+  	</div><!--end header-->
+  	<div data-role="content">
+  		<div id="div_map" style='height:350px;'>
+		</div>
+  	</div><!--end content -->
+  	<div data-role="footer" data-position="fixed">
+  		<h1>Mi Empresa</h1>
+  	</div><!--end footer-->
+  </div><!--end Page-->
+	
+	<script type="text/javascript" charset="utf-8">		
+		
+		$('#mapa').live( 'pageshow',function(event, ui){	
+			loadMap();
+		});	
+			function loadMap()
+			{
+
+
+				$('#div_map').gMap({
+
+					zoom: 15,
+					markers:[
+						{
+							latitude: 19.427703,
+							longitude: -99.167275,
+							html: "Venue",
+							popup: true
+						}	
+					]
+
+				});	
+			}					        
+ </script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="jquery.gmap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
